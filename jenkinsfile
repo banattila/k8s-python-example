@@ -4,7 +4,7 @@ pipeline {
 	stages {
 		stage('Checkout') {
 			steps {
-				git branch: 'main', url: 'https://banattila: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@github.com/banattila/k8s-python-example.git'
+				git branch: 'main', url: 'https://github.com/banattila/k8s-python-example.git'
 
 			}
 		}
