@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8-python-example
+  labels:
+    app: k8s-python-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-python-example
+  template:
+    metadata:
+      labels:
+        app: k8s-python-example
+    spec:
+      containers:
+        - name: k8s-python-example
+          image: banattila/k8s-python-example:latest
