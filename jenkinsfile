@@ -4,7 +4,11 @@ pipeline {
 	stages {
 		stage('Checkout') {
 			steps {
-				git branch: 'main', url: 'https://github.com/banattila/k8s-python-example.git'
+				withCredentials([usernamePassword(credentialsId: 'github_cred', usernameVariable: 'GITHUB_USER', passwordVariable: 'GITHUB_PASS')])
+				sh '''
+				git clone https://$GITHUB_USER:$GITHUB_PASS@github.com/banattila/k8s-python-example.git
+                '''
+				
 
 			}
 		}
@@ -15,6 +19,7 @@ pipeline {
 		}
 		stage('Push docker image') {
 			steps {
+
 				sh 'docker push banattila/k8s-python-example:latest'
 			}
 		}
