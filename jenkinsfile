@@ -4,12 +4,11 @@ pipeline {
 	stages {
 		stage('Checkout') {
 			steps {
-				withCredentials([usernamePassword(credentialsId: 'github_cred', usernameVariable: 'GITHUB_USER', passwordVariable: 'GITHUB_PASS')])
-				sh '''
-				git clone https://$GITHUB_USER:$GITHUB_PASS@github.com/banattila/k8s-python-example.git
-                '''
-				
-
+				withCredentials([usernamePassword(credentialsId: 'github_cred', usernameVariable: 'GITHUB_USER', passwordVariable: 'GITHUB_PASS')]) {
+                    sh '''
+                    git clone https://$GITHUB_USER:$GITHUB_PASS@github.com/banattila/k8s-python-example.git
+                    '''
+                }
 			}
 		}
 		stage('Build docker image') {
