@@ -1,5 +1,5 @@
 FROM python:3.9
 
-ADD src/main.py .
+ADD . .
 
 CMD ["python3", "main.py"]
