@@ -1,17 +1,13 @@
 import time
 
-from bcc.table import Array
-
-
-def any_example(any_string: str):
+def any_example(any_string):
 	print(f"This is a string: {any_string}", flush=True)
 
 
-def add(*args: Array) -> int:
+def add(*args):
 	result = 0
 	for arg in args:
 		for item in arg:
-			print(item)
 			result += item
 	return result
 
