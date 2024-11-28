@@ -24,7 +24,7 @@ pipeline {
 			steps {
 				sh '''
 				kubectl apply -f 'k8s-python-example.yaml'
-				kubectl rollout restart deployment/k8s-python-example
+				kubectl rollout restart deployments/k8s-python-example
 				'''
 			}
 		}
